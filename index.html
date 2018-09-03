@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset ="utf-8"></meta>
+        <title>test</title> 
+        <script src ="main.js"></script> 
+        <script src ="libs/phaser.js"></script>
+    </head>
+    <body>
+        <did id="gameContainer"></did>
+        <script>
+            window.onload = function()
+            {
+                var game = new Phaser.Game(320,480,Phaser.AUTO,"game");
+                game.state.add("Boot", MGame.Boot);
+                game.state.add("Preload",MGame.Preload);
+                game.state.add("GameTitle",MGame.GameTitle);
+                game.state.add("TheGame", MGame.TheGame);
+                game.state.add("GameOver",MGame.GameOver);
+                game.state.start("Boot");
+            }
+        </script>
+    </body>
+</html>
