@@ -1,23 +1,27 @@
 <html>
-    <head>
-        <meta charset ="utf-8"></meta>
-        <title>test</title> 
-        <script src ="main.js"></script> 
-        <script src ="libs/phaser.js"></script>
+	<head>
+    	<script src="libs/phaser.min.js"></script>
+    	<script src="boot.js"></script>
+		<script src="preload.js"></script>
+		<script src="gametitle.js"></script>
+		<script src="thegame.js"></script>
+		<script src="gameover.js"></script>	
+    		<style>
+    			body{margin:0}
+    		</style>
+		<script>
+			(function() {
+				console.log("hh");
+				var game = new Phaser.Game(320, 480, Phaser.CANVAS, "game");
+				game.state.add("Boot",Game.boot);
+				game.state.add("Preload",Game.preload);
+				game.state.add("GameTitle",Game.gameTitle);
+				game.state.add("TheGame",Game.theGame);
+				game.state.add("GameOver",Game.gameOver);
+				game.state.start("Boot");
+			})();    
+		</script>
     </head>
     <body>
-        <did id="gameContainer"></did>
-        <script>
-            window.onload = function()
-            {
-                var game = new Phaser.Game(320,480,Phaser.AUTO,"game");
-                game.state.add("Boot", MGame.Boot);
-                game.state.add("Preload",MGame.Preload);
-                game.state.add("GameTitle",MGame.GameTitle);
-                game.state.add("TheGame", MGame.TheGame);
-                game.state.add("GameOver",MGame.GameOver);
-                game.state.start("Boot");
-            }
-        </script>
     </body>
 </html>
